@@ -6,7 +6,7 @@ import { LotCard } from "@/components/LotCard"
 import { LotDetails } from "@/components/LotDetails"
 import { SignIn } from "@/components/SignIn"
 import { Watching } from "@/components/Watching"
-import { auction } from "@/lib/auction"
+import { auction } from "@/lib/mock-auction"
 import { safeNextPath } from "@/lib/safe-next-path"
 import type { Catalog, Lot } from "@/lib/types"
 
