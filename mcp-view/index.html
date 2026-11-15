@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Outbid</title>
+    <style>
+      :root {
+        --bg: #2b2b2b;
+        --card: #353535;
+        --ink: #ffffff;
+        --muted: #c5c5c5;
+        --yellow: #fef502;
+        --line: rgb(255 255 255 / 14%);
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 12px;
+        background: var(--bg);
+        color: var(--ink);
+        font: 15px/1.4 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+      header strong { font-size: 17px; letter-spacing: -0.01em; }
+      header span { color: var(--muted); font-size: 13px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+      .lot { background: var(--card); border: 1px solid var(--line); display: flex; flex-direction: column; }
+      .lot.mine { border-color: var(--yellow); }
+      .lot.fresh { animation: flash 1.4s ease-out; }
+      .photo { aspect-ratio: 4 / 3; background: #424242; display: grid; place-items: center; color: #9a9a9a; font-weight: 800; font-size: 28px; }
+      .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .body { padding: 10px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .title { font-weight: 650; font-size: 14px; }
+      .row { margin-top: auto; display: flex; justify-content: space-between; align-items: end; gap: 8px; }
+      .price { font-weight: 800; font-size: 26px; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; line-height: 1; }
+      .row > div { min-width: 0; }
+      .meta { color: var(--muted); font-size: 12px; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      button {
+        border: 0; border-radius: 999px; padding: 8px 12px; font: inherit; font-weight: 700; font-size: 13px;
+        background: var(--yellow); color: #181818; cursor: pointer; white-space: nowrap; flex: none;
+      }
+      button:disabled { background: transparent; color: var(--muted); outline: 1px solid var(--line); cursor: default; }
+      button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+      .note { margin-top: 10px; color: var(--muted); font-size: 13px; min-height: 18px; }
+      .note.error { color: #ff6b5e; }
+      @keyframes flash { from { box-shadow: 0 0 0 3px var(--yellow); } }
+      @media (prefers-reduced-motion: reduce) { .lot.fresh { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <header><strong>Outbid</strong><span>JSNation US 2026 closing party auction</span></header>
+    <div id="lots" class="grid" aria-live="polite"></div>
+    <p id="note" class="note" role="status"></p>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

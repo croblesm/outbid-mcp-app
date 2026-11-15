@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1200px;height:900px;overflow:hidden;font-family:"Helvetica Neue",Arial,sans-serif}
+.p{position:relative;width:1200px;height:900px;overflow:hidden}
+.lot{position:absolute;left:64px;bottom:56px;font-weight:800;font-size:44px;letter-spacing:-1px;opacity:.75}
+.big{position:absolute;font-weight:900;letter-spacing:-8px;line-height:.85}
+</style></head><body><div id="p" class="p"></div><script>
+const n=+new URLSearchParams(location.search).get('lot');
+const Y='#fef502',C='#353535',D='#212121',W='#ffffff',G='#9a9a9a';
+const art={
+1:`<div class="p" style="background:${Y}">
+  ${Array.from({length:5},(_,r)=>Array.from({length:8},(_,c)=>`<div style="position:absolute;left:${110+c*125}px;top:${120+r*110}px;width:96px;height:70px;border-radius:14px 14px 4px 4px;background:${r===0?C:'rgba(24,24,24,.18)'}"></div>`).join('')).join('')}
+  <div style="position:absolute;left:110px;top:56px;width:980px;height:28px;background:${C};border-radius:4px"></div>
+  <div class="lot" style="color:${C}">ROW 01, SEAT 01</div></div>`,
+4:`<div class="p" style="background:${C}">
+  <div style="position:absolute;left:250px;top:150px;width:470px;height:600px;background:${Y};border-radius:6px;box-shadow:inset 34px 0 0 rgba(0,0,0,.18)"></div>
+  <div style="position:absolute;left:310px;top:256px;font:900 74px 'Helvetica Neue';letter-spacing:-3px;color:${C}">JavaScript</div>
+  <div style="position:absolute;left:320px;top:360px;width:330px;height:14px;background:${C};opacity:.5"></div>
+  <div style="position:absolute;left:770px;top:150px;width:64px;height:600px;background:${W};border-radius:4px"></div>
+  <div style="position:absolute;left:820px;top:200px;transform:rotate(90deg);transform-origin:0 0;font:800 38px 'Helvetica Neue';letter-spacing:1px;color:${C};white-space:nowrap">the good parts</div>
+  <div class="lot" style="color:${W}">A QUICK READ</div></div>`,
+3:`<div class="p" style="background:#2a6f97">
+  <div style="position:absolute;left:330px;top:330px;width:560px;height:330px;border-radius:50% 50% 45% 45%;background:${Y}"></div>
+  <div style="position:absolute;left:640px;top:150px;width:280px;height:280px;border-radius:50%;background:${Y}"></div>
+  <div style="position:absolute;left:840px;top:270px;width:150px;height:60px;border-radius:0 40px 40px 0;background:#f28c28"></div>
+  <div style="position:absolute;left:790px;top:230px;width:30px;height:30px;border-radius:50%;background:${D}"></div>
+  <div style="position:absolute;left:0;top:640px;width:1200px;height:260px;background:#1d4f6e"></div>
+  <div class="lot" style="color:${W}">ON CALL SINCE 2020</div></div>`,
+5:`<div class="p" style="background:${D}">
+  <div class="big" style="left:70px;top:120px;font-size:420px;color:${Y}">$(</div>
+  <div class="big" style="left:620px;top:120px;font-size:420px;color:${W}">);</div>
+  <div style="position:absolute;left:70px;top:600px;font:700 40px monospace;color:${G}">// works in IE6, probably</div>
+  <div class="lot" style="color:${W}">EST. 2011</div></div>`,
+6:`<div class="p" style="background:#c9a66b">
+  ${Array.from({length:3},(_,r)=>Array.from({length:6},(_,c)=>`<div style="position:absolute;left:${70+c*180+(r%2)*60}px;top:${560-r*150}px;width:160px;height:140px;background:#a9834a;border:4px solid #7a5a2c"><div style="margin:52px auto 0;width:90px;height:18px;background:#7a5a2c"></div></div>`).join('')).join('')}
+  <div style="position:absolute;left:70px;top:60px;font:900 96px 'Helvetica Neue';letter-spacing:-4px;color:${D}">node_modules/</div>
+  <div class="lot" style="color:${D}">BOX 1 OF 40</div></div>`,
+2:`<div class="p" style="background:#3ecf8e">
+  <div style="position:absolute;left:330px;top:290px;width:540px;height:420px;background:${D}"></div>
+  <div style="position:absolute;left:300px;top:220px;width:600px;height:110px;background:#1b1b1b;transform:rotate(-6deg)"></div>
+  <div class="big" style="left:520px;top:390px;font-size:260px;color:#3ecf8e">?</div>
+  <div class="lot" style="color:${D}">CONTENTS UNKNOWN</div></div>`};
+document.getElementById('p').outerHTML=art[n];
+</script></body></html>

@@ -1,0 +1,7 @@
+
+# Lot photos: a public, read-only bucket, filled from demo/photos by `supabase seed buckets` (and db reset).
+[storage.buckets.lots]
+public = true
+file_size_limit = "2MiB"
+allowed_mime_types = ["image/jpeg", "image/png", "image/webp"]
+objects_path = "../demo/photos"

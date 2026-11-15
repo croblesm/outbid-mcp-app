@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Secrets and machine-specific settings: only the *.example files are committed.
+# `npm run env:local` and `npm run env:hosted` write .env.local and .env.hosted.local.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# local Supabase
+supabase/.temp
+# Written by `supabase start` and `supabase link`: pinned service versions and the linked project.
+supabase/supabase.lock
+supabase/.branches
+dist-view
+supabase/functions/.env
+# Written by `claude mcp add --scope project` (Studio, Connect, MCP): points at this machine's local port.
+.mcp.json

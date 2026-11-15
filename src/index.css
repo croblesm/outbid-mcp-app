@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/sora";
+@import "@fontsource-variable/manrope";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope Variable", ui-sans-serif, sans-serif;
+  --font-heading: "Sora Variable", var(--font-sans);
+  --font-display: "Sora Variable", var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-quiet: var(--quiet);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+/* JSNation's own palette (jsnation.us stylesheet): charcoal #353535, JS yellow #FEF502 with #181818 ink. Dark only, like the event site. */
+:root {
+  color-scheme: dark;
+  --background: #353535;
+  --foreground: #ffffff;
+  --card: #2e2e2c;
+  --card-foreground: #ffffff;
+  --popover: #212121;
+  --popover-foreground: #ffffff;
+  --primary: #fef502;
+  --primary-foreground: #181818;
+  --secondary: #424242;
+  --secondary-foreground: #ffffff;
+  --muted: #424242;
+  --muted-foreground: #c5c5c5;
+  --quiet: #9a9a9a;
+  --accent: #424242;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6b5e;
+  --border: rgb(255 255 255 / 14%);
+  --input: rgb(255 255 255 / 22%);
+  --ring: #fef502;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}
+
+/* Scoreboard numerals: heavy, tabular. */
+@utility numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+/* Speaker photos echo the JSNation mark: a square speech bubble with a tail. */
+@utility bubble {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    right: 18%;
+    bottom: -7px;
+    border-top: 8px solid var(--bubble, var(--primary));
+    border-left: 8px solid transparent;
+  }
+}
+
+/* A new price lights up in JSNation yellow, then settles. */
+@keyframes price-flash {
+  from {
+    color: var(--primary);
+    text-shadow: 0 0 24px rgb(254 245 2 / 45%);
+  }
+}
